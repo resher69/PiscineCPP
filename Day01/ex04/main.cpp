@@ -27,11 +27,11 @@ bool	open_files(std::ifstream& ifs, std::ofstream& ofs, std::string filename)
 		std::cout << "Impossible to open : " << filename << std::endl;
 		return (0);
 	}
-	ofs.open(out_file.c_str(), std::ios_base::out | std::ios_base::trunc);
+	ofs.open(outfile.c_str(), std::ios_base::out | std::ios_base::trunc);
 	if (!ofs.is_open())
 	{
 		ofs.close();
-		std::cout << "Impossible to create : " << out_file << std::endl;
+		std::cout << "Impossible to create : " << outfile << std::endl;
 		return (0);
 	}
 	return (1);

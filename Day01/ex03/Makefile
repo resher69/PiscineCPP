@@ -1,112 +1,49 @@
-NAME		=	test
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/04/13 14:28:18 by agardet           #+#    #+#              #
+#    Updated: 2022/04/13 14:28:18 by agardet          ###   ########lyon.fr    #
+#                                                                              #
+# **************************************************************************** #
 
-## ~~ Folders ~~ ##
+NAME		=	violence
 
-DDIR		=	deps/
-ODIR		=	objs/
+PATH_OBJ	=	obj/
 
-# =============== #
-# === SOURCES === #
-# =============== #
-
-ESRC		=	main.cpp
-
-CSRC		=	Weapon.cpp \
+SRC			=	main.cpp \
+				Weapon.cpp \
 				HumanA.cpp \
 				HumanB.cpp
 
-TSRC		=	# TEMPLATES SOURCES
+INC			=	Weapon.hpp \
+				HumanA.hpp \
+				HumanB.hpp 
 
-## ~~ Folders ~~ ##
+OBJ			=	$(addprefix $(PATH_OBJ), $(SRC:.cpp=.o))
 
-HDIR		=	incs/
-SDIR		=	srcs/
+CPPC		=	c++
+CPPFLAG		=	-Wall -Wextra -Werror -std=c++98
+RM			=	rm -rf
 
-# ==================== #
-# === PLACEHOLDERS === #
-# ==================== #
+all :		$(NAME)
 
-### ~~~ SOURCES ~~~ ###
+$(NAME) :	$(OBJ) $(INC)
+			$(CPPC) $(CPPFLAG) $(OBJ) -o $@
 
-SRCS		=	$(ESRC) $(CSRC)#$(TSRC)
+re :		fclean all
 
-### ~~~ TARGETS ~~~ ###
+$(PATH_OBJ)%.o :	%.cpp $(INC)
+					@mkdir -p $(PATH_OBJ)
+					$(CPPC) $(CPPFLAG) -c $< -o $@
 
-# EOBJ		=	$(ESRC:%.cpp=$(ODIR)%.o)
-# COBJ		=	$(CSRC:%.cpp=$(ODIR)%.o)
-# TOBJ		=	$(TSRC:%.tpp=$(ODIR)%.o)
+clean :
+			$(RM) $(PATH_OBJ)
 
-# OBJS		=	$(EOBJ) $(COBJ)#$(TOBJ)
-OBJS		=	$(SRCS:%.cpp=$(ODIR)%.o)
+fclean :		
+			$(RM) $(PATH_OBJ) $(NAME)
 
-DEPS		=	$(SRCS:%.cpp=$(DDIR)%.d)
-
-## ~~ Folders ~~ ##
-
-SUBDIRS		=	$(ODIR) $(DDIR)
-
-# ====================== #
-# === VARIABLE PATHS === #
-# ====================== #
-
-### ~~~ SOURCES ~~~ ###
-
-vpath %.hpp $(HDIR)
-# vpath %.tpp $(SDIR)
-vpath %.cpp $(SDIR)
-
-### ~~~ TARGETS ~~~ ###
-
-vpath %.o $(ODIR)
-
-# ====================== #
-# === COMPILER SETUP === #
-# ====================== #
-
-CC			=	g++
-WRNFL		=	-std=c++98 -Wall -Wextra -Werror
-DBGFL		=	-g
-CINCS		=	$(addprefix -I, $(HDIR))
-CFLGS		=	$(WRNFL) $(DBGFL)
-
-DEPFL		=	-MT $@ -MMD -MP -MF $(DDIR)$*.d
-
-# ============= #
-# === RULES === #
-# ============= #
-
-# ~~~ Default ~~~ #
-
-all			:	$(SUBDIRS) $(NAME)
-
-$(SUBDIRS)	:
-				mkdir -p $(SUBDIRS)
-
-# ~~~ Objects Compiling  ~~~ #
-
-$(ODIR)%.o	:	%.cpp $(DDIR)%.d
-				$(CC) $(CFLGS) $(CINCS) $(DEPFL) -c $< -o $@
-
-# ~~~ Executables Compiling  ~~~ #
-
-$(NAME)		:	$(OBJS)
-				$(CC) $^ -o $@
-
-# ~~~ Actions ~~~ #
-
-norm		:
-				norminette incs srcs
-
-clean		:
-				rm -rf $(ODIR)
-
-fclean		:	clean
-				$(RM) $(NAME)
-				rm -rf $(DDIR)
-
-re			:	fclean all
-
-.PHONY : all norm clean fclean re
-
-$(DEPS)		:
-include $(wildcard $(DEPS))
+.PHONY:		all clean fclean re

@@ -10,121 +10,38 @@
 #                                                                              #
 # **************************************************************************** #
 
-# =============== #
-# === TARGETS === #
-# =============== #
-
 NAME		=	phonebook
 
-## ~~ Folders ~~ ##
+PATH_OBJ	=	obj/
 
-DDIR		=	deps/
-ODIR		=	objs/
+SRC			= 	phonebook.cpp \
+				contact.cpp \
+				main.cpp
 
-# =============== #
-# === SOURCES === #
-# =============== #
+INC			=	Contact.hpp \
+				Phonebook.hpp
 
-ESRC		=	main.cpp
+OBJ			=	$(addprefix $(PATH_OBJ), $(SRC:.cpp=.o))
 
-CSRC		=	contact.cpp \
-				phonebook.cpp
+CPPC		=	c++
+CPPFLAG		=	-Wall -Wextra -Werror -std=c++98
+RM			=	rm -rf
 
-# TSRC		=	
+all :		$(NAME)
 
-## ~~ Folders ~~ ##
+$(NAME) :	$(OBJ) $(INC)
+			$(CPPC) $(CPPFLAG) $(OBJ) -o $@
 
-HDIR		=	incs/
-SDIR		=	srcs/
+re :		fclean all
 
-# ==================== #
-# === PLACEHOLDERS === #
-# ==================== #
+$(PATH_OBJ)%.o :	%.cpp $(INC)
+					@mkdir -p $(PATH_OBJ)
+					$(CPPC) $(CPPFLAG) -c $< -o $@
 
-### ~~~ SOURCES ~~~ ###
+clean :
+			$(RM) $(PATH_OBJ)
 
-SRCS		=	$(ESRC) $(CSRC)#$(TSRC)
+fclean :		
+			$(RM) $(PATH_OBJ) $(NAME)
 
-### ~~~ TARGETS ~~~ ###
-
-# EOBJ		=	$(ESRC:%.cpp=$(ODIR)%.o)
-# COBJ		=	$(CSRC:%.cpp=$(ODIR)%.o)
-# TOBJ		=	$(TSRC:%.tpp=$(ODIR)%.o)
-
-# OBJS		=	$(EOBJ) $(COBJ)#$(TOBJ)
-OBJS		=	$(SRCS:%.cpp=$(ODIR)%.o)
-
-DEPS		=	$(SRCS:%.cpp=$(DDIR)%.d)
-
-## ~~ Folders ~~ ##
-
-SUBDIRS		=	$(ODIR) $(DDIR)
-
-# ====================== #
-# === VARIABLE PATHS === #
-# ====================== #
-
-### ~~~ SOURCES ~~~ ###
-
-vpath %.hpp $(HDIR)
-# vpath %.tpp $(SDIR)
-vpath %.cpp $(SDIR)
-
-### ~~~ TARGETS ~~~ ###
-
-vpath %.o $(ODIR)
-
-# ====================== #
-# === COMPILER SETUP === #
-# ====================== #
-
-CC			=	g++
-
-WRNFL		=	-std=c++98 -Wall -Wextra -Werror
-DBGFL		=	-g
-CINCS		=	$(addprefix -I, $(HDIR))
-CFLGS		=	$(WRNFL) $(DBGFL)
-
-DEPFL		=	-MT $@ -MMD -MP -MF $(DDIR)$*.d
-
-# ============= #
-# === RULES === #
-# ============= #
-
-# ~~~ Default ~~~ #
-
-all			:	$(SUBDIRS) $(NAME)
-
-$(SUBDIRS)	:
-				mkdir -p $(SUBDIRS)
-
-# ~~~ Objects Compiling  ~~~ #
-
-$(ODIR)%.o	:	%.cpp $(DDIR)%.d
-				$(CC) $(CFLGS) $(CINCS) $(DEPFL) -c $< -o $@
-
-# ~~~ Executables Compiling  ~~~ #
-
-$(NAME)		:	$(OBJS)
-				$(CC) $^ -o $@
-
-# ~~~ Actions ~~~ #
-
-bonus		:	all
-
-norm		:
-				norminette incs srcs
-
-clean		:
-				rm -rf $(ODIR)
-
-fclean		:	clean
-				$(RM) $(NAME)
-				rm -rf $(DDIR)
-
-re			:	fclean all
-
-.PHONY : all norm clean fclean re#bonus
-
-$(DEPS)		:
-include $(wildcard $(DEPS))
+.PHONY:		all clean fclean re
