@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: agardet < agardet@student.42lyon.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 19:00:23 by agardet           #+#    #+#             */
-/*   Updated: 2022/04/13 19:37:37 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2022/04/17 22:38:50 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap(void) : _name("Default"), _hitPoint(10), _energyPoints(10), _
     std::cout << "ClapTrap " << this->_name << " created." << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoint(10), _energyPoints(10), _attackDamage(10)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoint(10), _energyPoints(10), _attackDamage(0)
 {
     std::cout << "ClapTrap " << this->_name << " created." << std::endl;
 }
