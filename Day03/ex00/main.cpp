@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agardet < agardet@student.42lyon.fr>       +#+  +:+       +#+        */
+/*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 19:00:24 by agardet           #+#    #+#             */
-/*   Updated: 2022/04/17 22:40:50 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2022/04/18 16:18:02 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 
 int		main(void)
 {
-	ClapTrap Clap("Clap");
-	ClapTrap TrapClap(Clap);
+	ClapTrap mordor("Orc");
+	ClapTrap mordorbis(mordor);
 
 	std::cout << std::endl;
 
-	TrapClap.takeDamage(1000);
-	TrapClap.beRepaired(10); // Do nothing because 0 HP left
-	Clap.attack("Gollum");
-	Clap.attack("Gollum");
-	Clap.attack("Gollum");
-	Clap.attack("Gollum");
-	Clap.attack("Gollum");
-	Clap.takeDamage(5);
-	Clap.beRepaired(1);
-	Clap.beRepaired(1);
-	Clap.beRepaired(1);
-	Clap.beRepaired(1);
-	Clap.beRepaired(1);
-	Clap.attack("Gollum"); // Do nothing because 0 EP left
-	Clap.attack("Gollum");
-	Clap.takeDamage(1000);
+	mordorbis.takeDamage(1000);
+	mordorbis.beRepaired(10); // Do nothing because 0 HP left
+	mordor.attack("Gollum");
+	mordor.attack("Gollum");
+	mordor.attack("Gollum");
+	mordor.attack("Gollum");
+	mordor.attack("Gollum");
+	mordor.takeDamage(5);
+	mordor.beRepaired(1);
+	mordor.beRepaired(1);
+	mordor.beRepaired(1);
+	mordor.beRepaired(1);
+	mordor.beRepaired(1);
+	mordor.attack("Gollum"); // Do nothing because 0 EP left
+	mordor.attack("Gollum");
+	mordor.takeDamage(1000);
 
 	std::cout << std::endl;
 

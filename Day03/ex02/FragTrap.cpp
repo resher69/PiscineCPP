@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agardet < agardet@student.42lyon.fr>       +#+  +:+       +#+        */
+/*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 21:56:40 by agardet           #+#    #+#             */
-/*   Updated: 2022/04/17 22:42:33 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2022/04/15 21:58:03 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ FragTrap::FragTrap(FragTrap const & src)
 	return;
 }
 
+/* Destructors */
 
 FragTrap::~FragTrap(void)
 {
@@ -42,6 +43,7 @@ FragTrap::~FragTrap(void)
 	return;
 }
 
+/* Overload */
 
 FragTrap &	FragTrap::operator=(FragTrap const & rhs)
 {
@@ -55,6 +57,7 @@ FragTrap &	FragTrap::operator=(FragTrap const & rhs)
 	return *this;
 }
 
+/* Member functions */
 
 void	FragTrap::attack(const std::string & target)
 {
