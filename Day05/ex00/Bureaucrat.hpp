@@ -6,7 +6,7 @@
 /*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 20:51:54 by agardet           #+#    #+#             */
-/*   Updated: 2022/04/18 20:53:50 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2022/04/19 19:44:53 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,20 @@ class	Bureaucrat
 		{
 			public:
 			
-				const char* what() const throw();
+				virtual const char* what() const throw()
+				{
+					return ("Grade too high.");
+				}
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
 			
-				const char* what() const throw();
+				virtual const char* what() const throw()
+				{
+					return ("Grade too low.");
+				}
 		};
 
 		void	promote(void);

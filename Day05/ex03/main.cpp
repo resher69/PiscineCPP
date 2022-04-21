@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -8,16 +9,20 @@
 
 int		main(void)
 {
-	Bureaucrat	dylan("Dylan", 1);
+	Bureaucrat	Arnaud("Arnaud", 1);
 	Intern		someRandomIntern;
 	AForm*		form;
 	
 
 	form = someRandomIntern.makeForm("robotomy request", "Bender");
-	dylan.signForm(*form);
-	dylan.executeForm(*form);
+	Arnaud.signForm(*form);
+	Arnaud.executeForm(*form);
 	delete form;
 	form = someRandomIntern.makeForm("world peace request", "World");
+	delete form;
+	form = someRandomIntern.makeForm("shrubbery creation", "gollum");
+	Arnaud.signForm(*form);
+	Arnaud.executeForm(*form);
 	delete form;
 	return (0);
 }

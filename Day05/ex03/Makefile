@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/16 17:22:00 by ebellon           #+#    #+#              #
-#    Updated: 2022/04/03 16:18:25 by marvin           ###   ########.fr        #
+#    Updated: 2022/04/19 20:34:12 by agardet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,8 @@ PATH_OBJ	=	obj/
 SRC			= 	Bureaucrat.cpp \
 				AForm.cpp \
 				ShrubberyCreationForm.cpp \
-				TreeAsciiArtGenerator.cpp \
 				RobotomyRequestForm.cpp \
 				PresidentialPardonForm.cpp \
-				PrintPresidentialPardon.cpp \
 				Intern.cpp \
 				main.cpp
 

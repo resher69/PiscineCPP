@@ -10,11 +10,11 @@ int		main(void)
 {
 	try
 	{
-		Bureaucrat Dwight("Dwight", 120);
+		Bureaucrat gollum("gollum", 120);
 
 		ShrubberyCreationForm shrubbery("salon");
-		Dwight.signForm(shrubbery);
-		Dwight.executeForm(shrubbery);
+		gollum.signForm(shrubbery);
+		gollum.executeForm(shrubbery);
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
@@ -22,15 +22,15 @@ int		main(void)
 
 	try
 	{
-		Bureaucrat palpatine("Palpatine", 46);
+		Bureaucrat azog("azog", 46);
 
 		RobotomyRequestForm robotomy("Darth Vader");
-		palpatine.signForm(robotomy);
-		palpatine.executeForm(robotomy);
-		palpatine.promote();
-		std::cout << "palpatine has been promoted." << std::endl;
-		palpatine.executeForm(robotomy);
-		palpatine.demote();
+		azog.signForm(robotomy);
+		azog.executeForm(robotomy);
+		azog.promote();
+		std::cout << "azog has been promoted." << std::endl;
+		azog.executeForm(robotomy);
+		azog.demote();
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
@@ -50,14 +50,14 @@ int		main(void)
 
 	try
 	{
-		Bureaucrat Dwight("Dwight", 6);
+		Bureaucrat gollum("gollum", 6);
 
 		PresidentialPardonForm pardon("Jim");
-		Dwight.executeForm(pardon);
-		std::cout << Dwight.getName() << " is horrified that he couldn't exec that form, he's going to pledge for promotion !" << std::endl;
-		Dwight.promote();
-		std::cout << "Dwight has been promoted." << std::endl;
-		Dwight.executeForm(pardon);
+		gollum.executeForm(pardon);
+		std::cout << gollum.getName() << " is horrified that he couldn't exec that form, he's going to pledge for promotion !" << std::endl;
+		gollum.promote();
+		std::cout << "gollum has been promoted." << std::endl;
+		gollum.executeForm(pardon);
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}

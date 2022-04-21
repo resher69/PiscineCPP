@@ -34,14 +34,8 @@ PresidentialPardonForm &	PresidentialPardonForm::operator=(PresidentialPardonFor
 	return *this;
 }
 
-/* Utils */
-
-void PrintPresidentialPardon(std::string const & target);
-
-/* Member function */
-
 void	PresidentialPardonForm::launch(void) const
 {
-	PrintPresidentialPardon(this->getTarget());
+	    std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 	return;
 }

@@ -41,8 +41,8 @@ void	RobotomyRequestForm::launch(void) const
 	srand(time(NULL));
 	std::cout << "*drilling noises*" << std::endl;
 	if (rand() % 2 == 0)
-		std::cout << this->getTarget() << " as successfully been robotomized !" << std::endl;
+		std::cout << this->getTarget() << " has been robotomized !" << std::endl;
 	else
-		std::cout << this->getTarget() << " robotomy failed ... (you may need to call the cleaning staff)." << std::endl;
+		std::cout << this->getTarget() << " robotomy failed ... RIP." << std::endl;
 	return;
 }

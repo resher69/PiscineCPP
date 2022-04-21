@@ -2,7 +2,7 @@
 
 /* Constructors */
 
-Bureaucrat::Bureaucrat(void) /* not usable (Coplien form asked by subject) */
+Bureaucrat::Bureaucrat(void)
 {
 	return;
 }

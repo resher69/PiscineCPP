@@ -23,7 +23,7 @@ class	Dog : public Animal
 		Dog(void);
 		Dog(Dog const & src);
 
-		virtual ~Dog(void);
+		 virtual ~Dog(void);
 
 		virtual void	makeSound(void) const;
 

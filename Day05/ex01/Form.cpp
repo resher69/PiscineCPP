@@ -69,18 +69,6 @@ bool					Form::getState(void) const
 	return this->_signed;
 }
 
-/* Exeptions */
-
-const char* Form::GradeTooHighException::what() const throw()
-{
-	return ("Grade too high.");
-}
-
-const char* Form::GradeTooLowException::what() const throw()
-{
-	return ("Grade too low.");
-}
-
 /* Member functions */
 
 void	Form::beSigned(Bureaucrat const & bureaucrat)

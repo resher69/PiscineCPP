@@ -26,21 +26,30 @@ class AForm
 		{
 			public:
 			
-				const char* what() const throw();
+				virtual const char* what() const throw()
+				{
+					return ("Grade too high.");
+				}
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
 			
-				const char* what() const throw();
+				virtual const char* what() const throw()
+				{
+					return ("Grade too low.");
+				}
 		};
 
 		class FormNotSignedException : public std::exception
 		{
 			public:
 			
-				const char* what() const throw();
+				virtual const char* what() const throw()
+				{
+					return ("Form not signed.");
+				}			
 		};
 
 		void			beSigned(Bureaucrat const & bureaucrat);

@@ -33,10 +33,6 @@ ShrubberyCreationForm &	ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 	return *this;
 }
 
-/* Utils */
-
-void	grow(int time_grow, std::ofstream & ofs);
-
 /* Member function */
 
 void	ShrubberyCreationForm::launch(void) const
@@ -46,14 +42,22 @@ void	ShrubberyCreationForm::launch(void) const
 	try
 	{
 		ofs.open(file.c_str(), std::ios_base::out | std::ios_base::trunc);
-		grow(10, ofs);
-		std::cout << "You can find this shrubbery in current dir under name of : ";
-		std::cout << file << " !" << std::endl;
-		ofs.close();
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
+	ofs 
+<< "               ,@@@@@@@," << std::endl \
+<< "       ,,,.   ,@@@@@@/@@,  .oo8888o." << std::endl \
+<< "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o" << std::endl \
+<< "   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'" << std::endl \
+<< "   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'" << std::endl \
+<< "   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'" << std::endl \
+<< "   `&%\\ ` /%&'    |.|        \\ '|8'" << std::endl \
+<< "       |o|        | |         | |" << std::endl \
+<< "       |.|        | |         | |" << std::endl \
+<< "    \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_";
+	ofs.close();
 	return;
 }

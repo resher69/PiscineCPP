@@ -6,7 +6,7 @@
 /*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 20:51:56 by agardet           #+#    #+#             */
-/*   Updated: 2022/04/18 20:55:13 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2022/04/19 19:44:59 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,6 @@ unsigned short		Bureaucrat::getGrade(void) const
 {
 	return this->_grade;
 }
-
-
-const char* Bureaucrat::GradeTooHighException::what() const throw()
-{
-	return ("Grade too high.");
-}
-
-const char* Bureaucrat::GradeTooLowException::what() const throw()
-{
-	return ("Grade too low.");
-}
-
 
 void	Bureaucrat::promote(void)
 {

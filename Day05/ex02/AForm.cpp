@@ -74,23 +74,6 @@ bool					AForm::getState(void) const
 	return this->_signed;
 }
 
-/* Exeptions */
-
-const char* AForm::GradeTooHighException::what() const throw()
-{
-	return ("Grade too high.");
-}
-
-const char* AForm::GradeTooLowException::what() const throw()
-{
-	return ("Grade too low.");
-}
-
-const char* AForm::FormNotSignedException::what() const throw()
-{
-	return ("Form not signed.");
-}
-
 /* Member functions */
 
 void	AForm::beSigned(Bureaucrat const & bureaucrat)

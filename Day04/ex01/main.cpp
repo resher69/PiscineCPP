@@ -21,11 +21,11 @@ int	main(void)
 	{
 	Animal*	animalPack[50];
 	
-	for( size_t i = 0; i < 25; i++ )
+	for( size_t i = 0; i < 2; i++ )
 		animalPack[i] = new Dog();
-	for( size_t i = 25; i < 50; i++ )
+	for( size_t i = 25; i < 27; i++ )
 		animalPack[i] = new Cat();
-	for( size_t i = 0; i < 50; i++ )
+	for( size_t i = 0; i < 4 ;i++ )
 		delete( animalPack[i] );
 	}
 	{

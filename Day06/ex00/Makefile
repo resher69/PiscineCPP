@@ -5,28 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/16 17:22:00 by ebellon           #+#    #+#              #
-#    Updated: 2022/04/19 20:21:13 by agardet          ###   ########lyon.fr    #
+#    Created: 2022/04/19 21:56:58 by agardet           #+#    #+#              #
+#    Updated: 2022/04/19 21:56:59 by agardet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	BureaucratTest
-
+NAME		=	convert
 PATH_OBJ	=	obj/
-
-SRC			= 	Bureaucrat.cpp \
-				AForm.cpp \
-				ShrubberyCreationForm.cpp \
-				RobotomyRequestForm.cpp \
-				PresidentialPardonForm.cpp \
-				main.cpp
-
-INC			=	Bureaucrat.hpp \
-				AForm.hpp \
-				ShrubberyCreationForm.hpp \
-				RobotomyRequestForm.hpp \
-				PresidentialPardonForm.hpp
-
+SRC			= 	main.cpp
 OBJ			=	$(addprefix $(PATH_OBJ), $(SRC:.cpp=.o))
 
 CPPC		=	c++
@@ -35,12 +21,12 @@ RM			=	rm -rf
 
 all :		$(NAME)
 
-$(NAME) :	$(OBJ) $(INC)
+$(NAME) :	$(OBJ)
 			$(CPPC) $(CPPFLAG) $(OBJ) -o $@
 
 re :		fclean all
 
-$(PATH_OBJ)%.o :	%.cpp $(INC)
+$(PATH_OBJ)%.o :	%.cpp
 					@mkdir -p $(PATH_OBJ)
 					$(CPPC) $(CPPFLAG) -c $< -o $@
 
